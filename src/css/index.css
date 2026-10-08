@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.device {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.picture {
+    position: absolute;
+    top: 107px;
+    left: 83px;
+}
+
+.tech {
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
