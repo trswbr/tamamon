@@ -1,11 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+.cherry-bomb-one-regular {
+  font-family: "Cherry Bomb One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: aliceblue;
+    background-color: pink;
     display: flex;
+
+}
+
+.tamagotchi {
+    background: #edd1d1;
+    background: 
+        url("../assets/design/sky/cloud.png") center / 1500px, 
+        linear-gradient(0deg,rgba(237, 209, 209, 1) 0%, rgb(243, 238, 229) 10%, rgba(139, 215, 240, 1) 45%);
+    background-repeat: repeat-x, no-repeat;
+    animation: moveClouds 140s linear infinite;
+
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
+    height: 80vh;
+    width: 80vw;
     margin: 0;
+}
+
+@keyframes moveClouds {
+    from {background-position-x: 0px, center;}
+    to {background-position-x: -1500px, center;}
+}
+
+.info {
+    font-family: "Cherry Bomb One";
+    font-size: 50px;
+    color: white;
+    text-align: center;
 }
 
 .device {

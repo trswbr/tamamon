@@ -4,7 +4,8 @@
 const myPoke = new Pokemon(
     pname = "Pummeluff", 
     hp = 115, 
-    img = "<img src='src/assets/sprites/Pokémonsprite_039_Schillernd_SW.gif' width='80'/>", 
+    //img = "<img src='src/assets/sprites/Pokémonsprite_039_Schillernd_SW.gif' width='80'/>", 
+    img = "<img src='src/assets/sprites/Pokémonsprite_039_SW.gif' width='80'/>",
     hunger = new Needs(80, 0.0520),
     fun = new Needs(80, 0.0347),
     energy = new Needs(100, 0.0347)
