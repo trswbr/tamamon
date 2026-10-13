@@ -1,6 +1,7 @@
 class Pokemon {
     constructor(pname, hp, img, hunger, fun, energy) {
         this.pname = pname;
+        this.hpMax = hp;
         this.hp = hp;
         this.img = img;
         this.hunger = hunger;

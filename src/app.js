@@ -2,7 +2,7 @@
 // choose pokemon 
 // !!! erstmal static
 const myPoke = new Pokemon(
-    pname = "Pummeluff", 
+    pname = "Pummeluff",
     hp = 115, 
     //img = "<img src='src/assets/sprites/Pokémonsprite_039_Schillernd_SW.gif' width='80'/>", 
     img = "<img src='src/assets/sprites/Pokémonsprite_039_SW.gif' width='80'/>",
@@ -12,7 +12,7 @@ const myPoke = new Pokemon(
 )
 
 
-// variables html (DOM-elements)
+// get elements etc
 const pokeName = document.getElementById('poke-name');
 const pokeImg = document.getElementById("poke-img");
 const pokeHP = document.getElementById("poke-hp");
@@ -26,6 +26,30 @@ const playButton = document.getElementById('poke-play');
 // sleep button
 const petButton = document.getElementById('poke-pet');
 
+const progressPercent = document.querySelector(".percent");
+const progressMarkValue = document.querySelector(".progress-number");
+const progressFill = document.querySelector(".progress-fill");
+const progressMark1 = document.querySelector(".progress-number-mark");
+const progressMark2 = document.querySelector(".down-arrow");
+
+const rootStyles = getComputedStyle(document.documentElement);
+const startRgbStr = rootStyles.getPropertyValue("--hp-start-rgb").trim();
+const startRgb = startRgbStr.split(",").map(Number);
+const endRgbStr = rootStyles.getPropertyValue("--hp-end-rgb").trim();
+const endRgb = endRgbStr.split(",").map(Number);
+
+
+
+// get color of progressbar at given percent
+function getColorAtPercentage(percent) {
+    const p = percent / 100;
+
+    const r = Math.round(startRgb[0] + (endRgb[0] - startRgb[0]) * p);
+    const g = Math.round(startRgb[1] + (endRgb[1] - startRgb[1]) * p);
+    const b = Math.round(startRgb[2] + (endRgb[2] - startRgb[2]) * p);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
 
 
 // UI rendern/aktualisieren
@@ -37,6 +61,15 @@ function updateUI() {
     pokeHung.innerHTML = myPoke.hunger.state;
     pokeFun.innerHTML = myPoke.fun.state;
     pokeEnergy.innerHTML = myPoke.energy.state;
+
+    let percentage = (myPoke.hp / myPoke.hpMax) * 100;
+    progressMarkValue.style.left = percentage + "%";
+    progressFill.style.width = percentage + "%";
+
+    const currentColor = getColorAtPercentage(percentage);
+    progressMark1.style.backgroundColor = currentColor;
+    progressMark2.style.borderTopColor = currentColor;
+    progressFill.style.background = `linear-gradient(to right, rgb(255,192,203) 0%, ${currentColor} 100%)`;
 }
 
 

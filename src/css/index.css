@@ -5,6 +5,11 @@
   font-style: normal;
 }
 
+:root {
+    --hp-start-rgb: 255,192,203;
+    --hp-end-rgb: 248, 145, 179;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: pink;
@@ -18,7 +23,9 @@ body {
     flex: 0 400px auto;
     height: 800px;
     width: 80vh;
-    margin: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     overflow: visible;
 }
 
@@ -53,8 +60,9 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 40px;
 
     height: 100%;
     width: 100%;
@@ -75,6 +83,11 @@ body {
     text-shadow: 3px 3px 2px pink;
 }
 
+.info p {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
 .device {
     position: relative;
     justify-content: center;
@@ -93,3 +106,82 @@ body {
     top: 0px;
     left: 0px;
 }
+
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.progressbar-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: "Cherry Bomb One";
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px 1px pink;
+}
+
+
+.progress-bar {
+    margin: 0 0 10px;
+    overflow: visible;
+    background: transparent;
+    flex-grow: 1;
+}
+
+.progress-number {
+    padding-bottom: 7px;
+    position: relative;
+    margin: 5px 0;
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 400;
+}
+
+.progress-number-mark {
+    line-height: 1;
+    padding: 8px 8px 7px;
+    border-radius: 3px;
+    font-size: 15px;
+    color: white;
+    text-shadow: 0 0 0 transparent;
+
+    margin-bottom: 4px;
+    background: pink;
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+.down-arrow {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid pink;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+.progress-bg {
+    height: 6px;
+    background: #efe1e3;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.progress-fill {
+    height: 6px;
+    background: linear-gradient(to right,
+        rgb(var(--hp-start-rgb)) 0%, 
+        rgb(var(--hp-end-rgb)) 100%
+    );
+    width: 100%;
+    border-radius: 6px;
+}
+
