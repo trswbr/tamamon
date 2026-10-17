@@ -7,7 +7,7 @@ class Pokemon {
         this.hunger = hunger;
         this.fun = fun;
         this.energy = energy;
-        this.affection = 10;
+        this.affection = 50;
     }
     feed() {
         this.hunger.increase(20);

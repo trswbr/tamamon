@@ -26,6 +26,8 @@ const playButton = document.getElementById('poke-play');
 // sleep button
 const petButton = document.getElementById('poke-pet');
 
+const heartFill = document.querySelector(".heart-fill");
+
 const progressPercent = document.querySelector(".percent");
 const progressMarkValue = document.querySelector(".progress-number");
 const progressFill = document.querySelector(".progress-fill");
@@ -41,7 +43,26 @@ const endRgb = endRgbStr.split(",").map(Number);
 
 
 // get color of progressbar at given percent
-function getColorAtPercentage(percent) {
+function getAffColorAtPercentage(percent) {
+    let colorGradient = "";
+    if (percent < 25) {
+        return "rgb(254,186,200)";
+    } else {
+        colorGradient = `linear-gradient(to right, rgb(254,186,200) 0%, rgb(254,186,200) ${2500/percent}%, rgb(252,174,194) ${2500/percent}%, rgb(252,174,194)`;
+    }
+    if (percent < 50) {
+        return colorGradient + ` 100%)`;
+    } else {
+        colorGradient += ` ${5000/percent}%, rgb(251,163,188) ${5000/percent}%, rgb(251,163,188)`
+    }
+    if (percent < 75) {
+        return colorGradient + ` 100%)`;
+    } else {
+        return colorGradient + ` ${7500/percent}%, rgb(249,151,182) ${7500/percent}%, rgb(249,151,182) 100%)`
+    }
+}
+
+function getHpColorAtPercentage(percent) {
     const p = percent / 100;
 
     const r = Math.round(startRgb[0] + (endRgb[0] - startRgb[0]) * p);
@@ -62,11 +83,15 @@ function updateUI() {
     pokeFun.innerHTML = myPoke.fun.state;
     pokeEnergy.innerHTML = myPoke.energy.state;
 
+    let affection = (myPoke.affection / 255) * 100;
+    heartFill.style.width = affection + "%";
+    heartFill.style.background = getAffColorAtPercentage(affection);
+
     let percentage = (myPoke.hp / myPoke.hpMax) * 100;
     progressMarkValue.style.left = percentage + "%";
     progressFill.style.width = percentage + "%";
 
-    const currentColor = getColorAtPercentage(percentage);
+    const currentColor = getHpColorAtPercentage(percentage);
     progressMark1.style.backgroundColor = currentColor;
     progressMark2.style.borderTopColor = currentColor;
     progressFill.style.background = `linear-gradient(to right, rgb(255,192,203) 0%, ${currentColor} 100%)`;
