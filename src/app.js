@@ -34,11 +34,21 @@ const progressFill = document.querySelector(".progress-fill");
 const progressMark1 = document.querySelector(".progress-number-mark");
 const progressMark2 = document.querySelector(".down-arrow");
 
+const hungerFill = document.querySelector(".hunger-bar");
+const funFill = document.querySelector(".fun-bar");
+const energyFill = document.querySelector(".energy-bar");
+
 const rootStyles = getComputedStyle(document.documentElement);
+const mainRgb = rootStyles.getPropertyValue("--main-color").trim();
+const bgRgb = rootStyles.getPropertyValue("--hidden-color").trim();
 const startRgbStr = rootStyles.getPropertyValue("--hp-start-rgb").trim();
 const startRgb = startRgbStr.split(",").map(Number);
 const endRgbStr = rootStyles.getPropertyValue("--hp-end-rgb").trim();
 const endRgb = endRgbStr.split(",").map(Number);
+const affRgb1 = rootStyles.getPropertyValue("--aff-start-rgb").trim();
+const affRgb2 = rootStyles.getPropertyValue("--aff-second-rgb").trim();
+const affRgb3 = rootStyles.getPropertyValue("--aff-third-rgb").trim();
+const affRgb4 = rootStyles.getPropertyValue("--aff-end-rgb").trim();
 
 
 
@@ -46,19 +56,19 @@ const endRgb = endRgbStr.split(",").map(Number);
 function getAffColorAtPercentage(percent) {
     let colorGradient = "";
     if (percent < 25) {
-        return "rgb(254,186,200)";
+        return `rgb(${affRgb1})`;
     } else {
-        colorGradient = `linear-gradient(to right, rgb(254,186,200) 0%, rgb(254,186,200) ${2500/percent}%, rgb(252,174,194) ${2500/percent}%, rgb(252,174,194)`;
+        colorGradient = `linear-gradient(to right, rgb(${affRgb1}) 0%, rgb(${affRgb1}) ${2500/percent}%, rgb(${affRgb2}) ${2500/percent}%, rgb(${affRgb2})`;
     }
     if (percent < 50) {
         return colorGradient + ` 100%)`;
     } else {
-        colorGradient += ` ${5000/percent}%, rgb(251,163,188) ${5000/percent}%, rgb(251,163,188)`
+        colorGradient += ` ${5000/percent}%, rgb(${affRgb3}) ${5000/percent}%, rgb(${affRgb3})`
     }
     if (percent < 75) {
         return colorGradient + ` 100%)`;
     } else {
-        return colorGradient + ` ${7500/percent}%, rgb(249,151,182) ${7500/percent}%, rgb(249,151,182) 100%)`
+        return colorGradient + ` ${7500/percent}%, rgb(${affRgb4}) ${7500/percent}%, rgb(${affRgb4}) 100%)`
     }
 }
 
@@ -72,6 +82,9 @@ function getHpColorAtPercentage(percent) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
+function getConicGradientForPercentage(percent) {
+    return `conic-gradient( rgb(${mainRgb}) 0%, rgb(${mainRgb}) ${percent}%, rgb(${bgRgb}) ${percent}%, rgb(${bgRgb}) 100% )`;
+}
 
 // UI rendern/aktualisieren
 function updateUI() {
@@ -79,9 +92,9 @@ function updateUI() {
     pokeImg.innerHTML = myPoke.img;
     pokeHP.innerHTML = myPoke.hp;
     pokeAff.innerHTML = myPoke.affection;
-    pokeHung.innerHTML = myPoke.hunger.state;
-    pokeFun.innerHTML = myPoke.fun.state;
-    pokeEnergy.innerHTML = myPoke.energy.state;
+    pokeHung.innerHTML = Math.round(myPoke.hunger.state);
+    pokeFun.innerHTML = Math.round(myPoke.fun.state);
+    pokeEnergy.innerHTML = Math.round(myPoke.energy.state);
 
     let affection = (myPoke.affection / 255) * 100;
     heartFill.style.width = affection + "%";
@@ -94,7 +107,11 @@ function updateUI() {
     const currentColor = getHpColorAtPercentage(percentage);
     progressMark1.style.backgroundColor = currentColor;
     progressMark2.style.borderTopColor = currentColor;
-    progressFill.style.background = `linear-gradient(to right, rgb(255,192,203) 0%, ${currentColor} 100%)`;
+    progressFill.style.background = `linear-gradient(to right, rgb(${mainRgb}) 0%, ${currentColor} 100%)`;
+
+    hungerFill.style.background = getConicGradientForPercentage(myPoke.hunger.state);
+    funFill.style.background = getConicGradientForPercentage(myPoke.fun.state);
+    energyFill.style.background = getConicGradientForPercentage(myPoke.energy.state);
 }
 
 

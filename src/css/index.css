@@ -6,6 +6,8 @@
 }
 
 :root {
+    --main-color: 255,192,203;
+    --hidden-color: 239, 225, 227;
     --hp-start-rgb: 255,192,203;
     --hp-end-rgb: 248, 145, 179;
     --aff-start-rgb: 254,186,200;
@@ -16,7 +18,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: pink;
+    background-color: rgb(var(--main-color));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,7 +86,7 @@ body {
     font-size: 50px;
     color: white;
     text-align: center;
-    text-shadow: 3px 3px 2px pink;
+    text-shadow: 3px 3px 2px rgb(var(--main-color));
 }
 
 .info p {
@@ -131,14 +133,14 @@ body {
     mask-size: 100% 100%;
     mask-repeat: no-repeat;
 
-    height: 28px;
-    width: 129px;
+    height: 35px;
+    width: 180px;
 }
 
 .heart-bg {
     height: 100%;
     width: 100%;
-    background: #efe1e3;
+    background: rgb(var(--hidden-color));
     overflow: hidden;
 }
 
@@ -163,14 +165,14 @@ body {
 
 
 .progressbar-item {
-    margin-bottom: 15px;
+    padding-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 15px;
     font-family: "Cherry Bomb One";
     font-size: 20px;
     color: white;
-    text-shadow: 2px 2px 1px pink;
+    text-shadow: 2px 2px 1px rgb(var(--main-color));
 }
 
 
@@ -199,24 +201,22 @@ body {
     text-shadow: 0 0 0 transparent;
 
     margin-bottom: 4px;
-    background: pink;
+    background: rgb(var(--main-color));
     position: absolute;
     bottom: 0;
     transform: translateX(-50%);
     visibility: hidden;
-    transition: visibility 0.2s ease;
 }
 
 .down-arrow {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 7px solid pink;
+    border-top: 7px solid rgb(var(--main-color));
     position: absolute;
     left: 50%;
     top: 100%;
     transform: translateX(-50%);
     visibility: hidden;
-    transition: visibility 0.2s ease;
 }
 
 .progress-bar:hover .progress-number-mark, .progress-bar:hover .down-arrow {
@@ -225,7 +225,7 @@ body {
 
 .progress-bg {
     height: 6px;
-    background: #efe1e3;
+    background: rgb(var(--hidden-color));
     overflow: hidden;
     border-radius: 6px;
 }
@@ -241,5 +241,54 @@ body {
 }
 
 
+.circle-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    padding-bottom: 20px;
+}
 
+.stat-hunger, .stat-fun, .stat-energy {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
 
+    font-family: "Cherry Bomb One";
+    font-size: 25px;
+    color: rgb(var(--hp-end-rgb));
+    text-shadow: 1px 1px 4px rgb(var(--main-color));
+}
+
+.hunger-number, .fun-number, .energy-number {
+    position: absolute;
+    visibility: hidden;
+}
+
+.hunger-title, .fun-title, .energy-title {
+    position: absolute;
+    visibility: visible;
+}
+
+.hunger-bar, .fun-bar, .energy-bar {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background: conic-gradient(
+        rgb(var(--main-color)) 0%, rgb(var(--main-color)) 60%, 
+        rgb(var(--hidden-color)) 60%, rgb(var(--hidden-color)) 100%);
+    border-radius: 40px;
+
+    mask-image: radial-gradient(transparent 25px, black 26px);
+    filter: blur(1px);
+}
+
+.stat-hunger:hover .hunger-number, .stat-fun:hover .fun-number, .stat-energy:hover .energy-number {
+    visibility: visible;
+}
+.stat-hunger:hover .hunger-title, .stat-fun:hover .fun-title, .stat-energy:hover .energy-title {
+    visibility: hidden;
+}
