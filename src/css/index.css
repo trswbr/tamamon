@@ -1,9 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
-.cherry-bomb-one-regular {
-  font-family: "Cherry Bomb One", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
 
 :root {
     --main-color: 255,192,203;
@@ -29,10 +24,7 @@ body {
     flex: 0 400px auto;
     height: 650px;
     width: 80vh;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 40px;
+    margin: 20px 20px 40px;
     overflow: visible;
 }
 
@@ -105,9 +97,6 @@ body {
 .device {
     position: relative;
     justify-self: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
 }
 
 
@@ -120,17 +109,12 @@ body {
     justify-content: flex-end;
     transform: scale(-1, 1);
 }
-.control-right {
-    justify-content: flex-start;
-}
-
 .control-wrapper button {
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
     clip-path: circle(50% at 50% 50%);
     animation: floatButton 3s linear infinite;
-    visibility: visible;
 }
 
 @keyframes floatButton {
@@ -139,7 +123,6 @@ body {
     75% {transform: translateY(5px);}
     100% {transform: translateY(0px);}
 }
-.control-wrapper button:nth-child(1) {animation-delay: 0s;}
 .control-wrapper button:nth-child(2) {animation-delay: 0.3s; translate: 10px 0px;}
 
 .is-deactivated {
@@ -155,17 +138,9 @@ body {
     left: 83px;
 }
 
-.tech {
-    position: relative;
-    top: 0px;
-    left: 0px;
-}
-
-
 .stats {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     margin: 0;
 }
 
@@ -237,7 +212,6 @@ body {
     margin: 5px 0;
     font-size: 15px;
     line-height: 15px;
-    font-weight: 400;
 }
 
 .progress-number-mark {
@@ -291,7 +265,6 @@ body {
 
 .circle-stats {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     gap: 100px;
 }
@@ -338,7 +311,6 @@ body {
 .stat-hunger:hover .hunger-title, .stat-fun:hover .fun-title, .stat-energy:hover .energy-title {
     visibility: hidden;
 }
-
 
 
 

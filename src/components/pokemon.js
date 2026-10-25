@@ -19,11 +19,11 @@ class Pokemon {
         this.energy.increase((100/480*min));
     }
     pet() {
-        if (this.affection < 100) {
-            if (this.affection + 10 < 100) {
+        if (this.affection < 255) {
+            if (this.affection + 10 < 255) {
                 this.affection += 10;
             } else {
-                this.affection = 100;
+                this.affection = 255;
             }
         }
     }

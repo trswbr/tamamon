@@ -137,8 +137,7 @@ function statsDecrease() {
 
 function gameLoop() {
     statsDecrease();
-
-    setInterval(updateUI, 2000);
+    updateUI();
 }
 
 
@@ -175,4 +174,4 @@ petButton.addEventListener('click', () => {
 
 updateUI();
 setInterval(gameLoop, 60000);
-
+setInterval(updateUI, 2000);
