@@ -10,67 +10,67 @@
         <div class="tamagotchi">
         
             <div class="pet">
-                <div class="info">
-                    <p id="poke-name"></p>
-                    <div class="device">
-                        <img class="tech" src="src/assets/tamagotchis/heart-pink.png"/>
-                        <div class="picture" id="poke-img"></div>
-                    </div>
+                <div class="info" id="poke-name"></div>
+                <div class="control-wrapper control-left">
+                    <button id="poke-feed"><img src="src/assets/design/sky/button_feed.png"></button>
+                    <button id="poke-pet"><img src="src/assets/design/sky/button_pet.png"></button>
                 </div>
-                <div class="stats">
-
-                    <div class="affection-bar">
-                        <div class="heart-gauge" >
-                            <div class="heart-bg">
-                                <div class="heart-fill" ></div>
-                                <div id="poke-aff"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="progressbar-item">
-                        <p>HP:</p>
-                        <div class="progress-bar">
-                            <div class="progress-number">
-                                <div class="progress-number-mark">
-                                    <span class="percent" id="poke-hp"></span>
-                                    <span class="down-arrow"></span>
-                                </div>
-                            </div>
-                            <div class="progress-bg">
-                                <div class="progress-fill"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="circle-stats">
-                        <div class="stat-hunger">
-                            <div class="hunger-bar"></div>
-                            <p class="hunger-title">Hunger</p>
-                            <div class="hunger-number" id="poke-hung"></div>
-                        </div>
-
-                        <div class="stat-fun">
-                            <div class="fun-bar"></div>
-                            <p class="fun-title">Spaß</p>
-                            <div class="fun-number" id="poke-fun"></div>
-                        </div>
-                        
-                        <div class="stat-energy">
-                            <div class="energy-bar"></div>
-                            <p class="energy-title">Energie</p>
-                            <div class="energy-number" id="poke-engy"></div>
-                        </div>
-                    </div>
-                    
-
+                <div class="device">
+                    <img class="tech" src="src/assets/tamagotchis/heart-pink.png"/>
+                    <div class="picture" id="poke-img"></div>
+                </div>
+                <div class="control-wrapper control-right">
+                    <button id="poke-sleep" class="is-deactivated"><img src="src/assets/design/sky/button_sleep.png"></button>
+                    <button id="poke-play"><img src="src/assets/design/sky/button_play.png"></button>
                 </div>
             </div>
-            <div class="controls">
-                <button id="poke-feed">füttern</button>
-                <button id="poke-play">spielen</button>
-                <button id="poke-sleep" disabled>schlafen</button>
-                <button id="poke-pet">streicheln</button>
+
+            <div class="stats">
+                <div class="affection-bar">
+                    <div class="heart-gauge" >
+                        <div class="heart-bg">
+                            <div class="heart-fill" ></div>
+                            <div id="poke-aff"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progressbar-item">
+                    <p>HP:</p>
+                    <div class="progress-bar">
+                        <div class="progress-number">
+                            <div class="progress-number-mark">
+                                <span class="percent" id="poke-hp"></span>
+                                <span class="down-arrow"></span>
+                            </div>
+                        </div>
+                        <div class="progress-bg">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="circle-stats">
+                    <div class="stat-hunger">
+                        <div class="hunger-bar"></div>
+                        <p class="hunger-title">Hunger</p>
+                        <div class="hunger-number" id="poke-hung"></div>
+                    </div>
+
+                    <div class="stat-fun">
+                        <div class="fun-bar"></div>
+                        <p class="fun-title">Spaß</p>
+                        <div class="fun-number" id="poke-fun"></div>
+                    </div>
+                    
+                    <div class="stat-energy">
+                        <div class="energy-bar"></div>
+                        <p class="energy-title">Energie</p>
+                        <div class="energy-number" id="poke-engy"></div>
+                    </div>
+                </div>
+                
+
             </div>
         </div>
         </div>

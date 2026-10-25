@@ -23,7 +23,7 @@ const pokeEnergy = document.getElementById("poke-engy");
 
 const feedButton = document.getElementById('poke-feed');
 const playButton = document.getElementById('poke-play');
-// sleep button
+const sleepButton = document.getElementById('poke-sleep');
 const petButton = document.getElementById('poke-pet');
 
 const heartFill = document.querySelector(".heart-fill");
@@ -147,8 +147,10 @@ function gameLoop() {
 // buttons
 function buttonCooldown(button) {
     button.disabled = true;
+    button.classList.add("is-deactivated");
     setTimeout(() => {
         button.disabled = false;
+        button.classList.remove("is-deactivated");
     }, 10*60000); // 10 Minuten
 }
 

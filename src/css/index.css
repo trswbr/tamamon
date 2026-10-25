@@ -81,25 +81,72 @@ body {
     to {background-position-x: -1500px, center;}
 }
 
+.pet {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+}
+
 .info {
+    grid-column: 1 / -1;
+    justify-self: center;
     font-family: "Cherry Bomb One";
     font-size: 50px;
     color: white;
     text-align: center;
     text-shadow: 3px 3px 2px rgb(var(--main-color));
-}
-
-.info p {
     margin: 0;
     padding-bottom: 10px;
 }
 
+
 .device {
     position: relative;
+    justify-self: center;
     justify-content: center;
     top: 0;
     left: 0;
 }
+
+
+.control-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.control-left {
+    justify-content: flex-end;
+    transform: scale(-1, 1);
+}
+.control-right {
+    justify-content: flex-start;
+}
+
+.control-wrapper button {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    clip-path: circle(50% at 50% 50%);
+    animation: floatButton 3s linear infinite;
+    visibility: visible;
+}
+
+@keyframes floatButton {
+    0% {transform: translateY(0px);}
+    25% {transform: translateY(-5px);}
+    75% {transform: translateY(5px);}
+    100% {transform: translateY(0px);}
+}
+.control-wrapper button:nth-child(1) {animation-delay: 0s;}
+.control-wrapper button:nth-child(2) {animation-delay: 0.3s; translate: 10px 0px;}
+
+.is-deactivated {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 .picture {
     position: absolute;
@@ -292,3 +339,9 @@ body {
 .stat-hunger:hover .hunger-title, .stat-fun:hover .fun-title, .stat-energy:hover .energy-title {
     visibility: hidden;
 }
+
+
+
+
+
+
