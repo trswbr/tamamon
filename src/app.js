@@ -16,7 +16,6 @@ const myPoke = new Pokemon(
 const pokeName = document.getElementById('poke-name');
 const pokeImg = document.getElementById("poke-img");
 const pokeHP = document.getElementById("poke-hp");
-const pokeAff = document.getElementById("poke-aff");
 const pokeHung = document.getElementById("poke-hung");
 const pokeFun = document.getElementById("poke-fun");
 const pokeEnergy = document.getElementById("poke-engy");
@@ -91,7 +90,6 @@ function updateUI() {
     pokeName.innerHTML = myPoke.pname;
     pokeImg.innerHTML = myPoke.img;
     pokeHP.innerHTML = myPoke.hp;
-    pokeAff.innerHTML = myPoke.affection;
     pokeHung.innerHTML = Math.round(myPoke.hunger.state);
     pokeFun.innerHTML = Math.round(myPoke.fun.state);
     pokeEnergy.innerHTML = Math.round(myPoke.energy.state);
@@ -137,7 +135,6 @@ function statsDecrease() {
 
 function gameLoop() {
     statsDecrease();
-    updateUI();
 }
 
 
@@ -150,7 +147,7 @@ function buttonCooldown(button) {
     setTimeout(() => {
         button.disabled = false;
         button.classList.remove("is-deactivated");
-    }, 10*60000); // 10 Minuten
+    }, 10 * 60 * 1000); // 10 Minuten
 }
 
 feedButton.addEventListener('click', () => {
