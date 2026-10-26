@@ -1,16 +1,20 @@
+# TamaMon
+Ein simples Tamagotchi, bei dem man sich um ein Pokémon kümmert. 
+Bedürfnisse sinken leicht pro Minute. Unterschreiten diese einen Grenzwert sinkt die Gesundheit und/oder die Zuneigung.
+Bedürfnisse lassen sich wiederherstellen mit den Buttons links und rechts vom Device (Ausnahme Energie, wird zu einem späteren Zeitpunkt ergänzt -> siehe Roadmap).
+
 ## Zweck dieses Projektes sind:
  - Vertiefung von bereits vorhandenen Kenntnissen
  - Lernen neuer/unsicherer Syntax
  - Portfolio.
-
 
 Dabei steht prinzipiell (erst einmal) die Ästhetik im Vordergrund - auf den ersten Blick ist womöglich nicht erkennbar, welche buttons welche Funktion haben. Oder die Buttons des Tamagotchi images sind nicht verwendbar (die Bildbearbeitung, um die Buttons zu retouchieren, wäre ein großer Task in sich).
 
 
 ## Roadmap:
 - [x] Grundsystem
-- [ ] erstes Design (Pummeluff - dreamcore)
-- [ ] lokaler Cache
+- [x] erstes Design (Pummeluff - dreamcore)
+- [ ] lokaler Cache/Cookies
 - [ ] Shiny-Funktion des Sprites
 - [ ] Schlafen-Funktion
 - [ ] Heil-Items
