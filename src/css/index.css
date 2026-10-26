@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+
+:root {
+    --main-color: 255,192,203;
+    --hidden-color: 239, 225, 227;
+    --hp-start-rgb: 255,192,203;
+    --hp-end-rgb: 248, 145, 179;
+    --aff-start-rgb: 254,186,200;
+    --aff-second-rgb: 252,174,194;
+    --aff-third-rgb: 251,163,188;
+    --aff-end-rgb: 249,151,182;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(var(--main-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tamaborder {
+    position: relative;
+    flex: 1 0 500px;
+    height: 650px;
+    width: 80vh;
+    margin: 20px 40px 40px;
+    overflow: visible;
+}
+
+.tamaborder::before {
+    content: "";
+    position: absolute;
+    top: -28px;
+    left: -36px;
+    right: -36px;
+    bottom: -80px;
+
+    pointer-events: none;
+    z-index: 10;
+
+    border: 30px solid transparent;
+    border-image-source: url("../assets/design/sky/borderimage.png");
+    border-image-repeat: round;
+    border-image-slice: 208; 
+    border-image-width: 83px;
+    border-image-outset: -30px -40px;
+}
+
+.tamagotchi {
+    background: #edd1d1;
+    background:
+        url("../assets/design/sky/cloud.png") center / 1500px, 
+        linear-gradient(0deg,rgba(237, 209, 209, 1) 0%, rgb(243, 238, 229) 10%, rgba(139, 215, 240, 1) 45%);
+    background-repeat: repeat-x, no-repeat;
+    animation: moveClouds 140s linear infinite;
+    border-radius: 25px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 40px;
+
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+}
+
+@keyframes moveClouds {
+    from {background-position-x: 0px, center;}
+    to {background-position-x: -1500px, center;}
+}
+
+.pet {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+}
+
+.info {
+    grid-column: 1 / -1;
+    justify-self: center;
+    font-family: "Cherry Bomb One";
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    text-shadow: 3px 3px 2px rgb(var(--main-color));
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+
+.device {
+    position: relative;
+    justify-self: center;
+}
+
+
+.control-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.control-left {
+    justify-content: flex-end;
+    transform: scale(-1, 1);
+}
+.control-wrapper button {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    clip-path: circle(50% at 50% 50%);
+    animation: floatButton 3s linear infinite;
+}
+
+@keyframes floatButton {
+    0% {transform: translateY(0px);}
+    25% {transform: translateY(-5px);}
+    75% {transform: translateY(5px);}
+    100% {transform: translateY(0px);}
+}
+.control-wrapper button:nth-child(2) {animation-delay: 0.3s; translate: 10px 0px;}
+
+.is-deactivated {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.picture {
+    position: absolute;
+    top: 107px;
+    left: 83px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+
+
+.affection-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.heart-gauge {
+    mask-image: url("../assets/design/sky/affection_bar.png");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+
+    height: 35px;
+    width: 180px;
+}
+
+.heart-bg {
+    height: 100%;
+    width: 100%;
+    background: rgb(var(--hidden-color));
+    overflow: hidden;
+}
+
+.heart-fill {
+    background: linear-gradient(to right,
+        rgb(var(--aff-start-rgb)) 0%,
+        rgb(var(--aff-start-rgb)) 25%,
+        
+        rgb(var(--aff-second-rgb)) 25%,
+        rgb(var(--aff-second-rgb)) 50%,
+
+        rgb(var(--aff-third-rgb)) 50%,
+        rgb(var(--aff-third-rgb)) 75%,
+
+        rgb(var(--aff-end-rgb)) 75%,
+        rgb(var(--aff-end-rgb)) 100%
+    );
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.progressbar-item {
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: "Cherry Bomb One";
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px 1px rgb(var(--main-color));
+}
+
+
+.progress-bar {
+    margin: 0 0 10px;
+    overflow: visible;
+    background: transparent;
+    flex-grow: 1;
+}
+
+.progress-number {
+    padding-bottom: 7px;
+    position: relative;
+    margin: 5px 0;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.progress-number-mark {
+    line-height: 1;
+    padding: 8px 8px 7px;
+    border-radius: 3px;
+    font-size: 15px;
+    color: white;
+    text-shadow: 0 0 0 transparent;
+
+    margin-bottom: 4px;
+    background: rgb(var(--main-color));
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    visibility: hidden;
+}
+
+.down-arrow {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid rgb(var(--main-color));
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    visibility: hidden;
+}
+
+.progress-bar:hover .progress-number-mark, .progress-bar:hover .down-arrow {
+    visibility: visible;
+}
+
+.progress-bg {
+    height: 6px;
+    background: rgb(var(--hidden-color));
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.progress-fill {
+    height: 6px;
+    background: linear-gradient(to right,
+        rgb(var(--hp-start-rgb)) 0%, 
+        rgb(var(--hp-end-rgb)) 100%
+    );
+    width: 100%;
+    border-radius: 6px;
+}
+
+
+.circle-stats {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.stat-hunger, .stat-fun, .stat-energy {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+
+    font-family: "Cherry Bomb One";
+    font-size: 25px;
+    color: rgb(var(--hp-end-rgb));
+    text-shadow: 1px 1px 4px rgb(var(--main-color));
+}
+
+.hunger-number, .fun-number, .energy-number {
+    position: absolute;
+    visibility: hidden;
+}
+
+.hunger-title, .fun-title, .energy-title {
+    position: absolute;
+    visibility: visible;
+}
+
+.hunger-bar, .fun-bar, .energy-bar {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background: conic-gradient(
+        rgb(var(--main-color)) 0%, rgb(var(--main-color)) 60%, 
+        rgb(var(--hidden-color)) 60%, rgb(var(--hidden-color)) 100%);
+    border-radius: 40px;
+
+    mask-image: radial-gradient(transparent 25px, black 26px);
+    filter: blur(1px);
+}
+
+.stat-hunger:hover .hunger-number, .stat-fun:hover .fun-number, .stat-energy:hover .energy-number {
+    visibility: visible;
+}
+.stat-hunger:hover .hunger-title, .stat-fun:hover .fun-title, .stat-energy:hover .energy-title {
+    visibility: hidden;
+}
+
+
+
+
+

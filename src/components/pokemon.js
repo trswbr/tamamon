@@ -1,12 +1,13 @@
 class Pokemon {
     constructor(pname, hp, img, hunger, fun, energy) {
         this.pname = pname;
+        this.hpMax = hp;
         this.hp = hp;
         this.img = img;
         this.hunger = hunger;
         this.fun = fun;
         this.energy = energy;
-        this.affection = 10;
+        this.affection = 50;
     }
     feed() {
         this.hunger.increase(20);
@@ -18,11 +19,11 @@ class Pokemon {
         this.energy.increase((100/480*min));
     }
     pet() {
-        if (this.affection < 100) {
-            if (this.affection + 10 < 100) {
+        if (this.affection < 255) {
+            if (this.affection + 10 < 255) {
                 this.affection += 10;
             } else {
-                this.affection = 100;
+                this.affection = 255;
             }
         }
     }
