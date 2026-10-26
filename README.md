@@ -1,6 +1,39 @@
-Dieses Projekt ist für mich zur Vertiefung von Frontend-Praktiken und den Umgang mit JavaScript, HTML und CSS.
+# TamaMon
+Ein simples Tamagotchi, bei dem man sich um ein Pokémon kümmert. 
+Bedürfnisse sinken leicht pro Minute. Unterschreiten diese einen Grenzwert sinkt die Gesundheit und/oder die Zuneigung.
+Bedürfnisse lassen sich wiederherstellen mit den Buttons links und rechts vom Device (Ausnahme Energie, wird zu einem späteren Zeitpunkt ergänzt -> siehe Roadmap).
 
-Outline des Projektes folgt noch. 
-Für den Anfang gibt es ein Pokémon, welches man füttern, bespaßen und streicheln kann. 
-Die Bedürfnisse sinken leicht pro Minute. Sinken die Bedürfnisse unter bestimmte Werte, fängt die Gesundheit an zu sinken. 
-Es werden noch keine Daten gespeichert. Beim Schließen/Aktualisieren des Tabs wird die Anwendung zurückgesetzt.
+## Zweck dieses Projektes sind:
+ - Vertiefung von bereits vorhandenen Kenntnissen
+ - Lernen neuer/unsicherer Syntax
+ - Portfolio.
+
+Dabei steht prinzipiell (erst einmal) die Ästhetik im Vordergrund - auf den ersten Blick ist womöglich nicht erkennbar, welche buttons welche Funktion haben. Oder die Buttons des Tamagotchi images sind nicht verwendbar (die Bildbearbeitung, um die Buttons zu retouchieren, wäre ein großer Task in sich).
+
+
+## Roadmap:
+- [x] Grundsystem
+- [x] erstes Design (Pummeluff - dreamcore)
+- [ ] lokaler Cache/Cookies
+- [ ] Shiny-Funktion des Sprites
+- [ ] Schlafen-Funktion
+- [ ] Heil-Items
+- [ ] Bildbearbeitung: Buttons des Tamagotchis herauslöschen
+- [ ] wählbares Design
+
+
+#### weitere geplante Designs:
+- Picochilla, light academia
+- Evoli, minimalist
+
+
+---
+
+#### Grafiken
+<details>
+<summary>Bilderquellen:</summary>
+Pokémon Sprites gehören Nintendo. Heruntergeladen über das <a href="www.pokewiki.de">Pokéwiki</a>.</br>
+Tamagotchi Shell von <a href="https://www.milkieco.com/products/tamagotchi-keychain?srsltid=AYCX9vKrue1gWkzBu3XtB7rtR-NSEGVg8zNxlJ5FgnfCU3lS7LQElFQL&variant=43203896672387">hier</a></br>
+Herzen, Schleifen, Wolke, Rand - über Clip Studio Paint Brushes</br>
+Buttons von <a href="https://i.pinimg.com/736x/95/cd/5e/95cd5ea8375e6d6590ae150559d0a44f.jpg">hier</a>, selber gesäubert und angepasst.
+</details>
